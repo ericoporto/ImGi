@@ -4,8 +4,7 @@ AGS Script Module for Immediate Gui (based on rxi's Microui)
 ## usage
 
 ```AGS Script
-// called on every game cycle, except when the game is blocked
-function room_RepExec() // alternatively use repeatedly_execute() 
+function repeatedly_execute() // In Room Script, use room_RepExec() 
 {
   ImGi.Begin(); 
     
