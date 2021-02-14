@@ -96,6 +96,7 @@ Controls are things you can place inside a window. Controls cannot exist outside
 void ImGi.Label(String label)
 ```
 
+![](docs/images/ctrl_label.gif)
 This control is a Label containing the specified text.
 
 #### `ImGi.Text`
