@@ -644,15 +644,19 @@
         <UnloadedRooms>
           <UnloadedRoom>
             <Number>1</Number>
-            <Description IsNull="True" />
+            <Description xml:space="preserve">Hello World!</Description>
           </UnloadedRoom>
           <UnloadedRoom>
             <Number>2</Number>
-            <Description IsNull="True" />
+            <Description xml:space="preserve">A Debug Gui</Description>
           </UnloadedRoom>
           <UnloadedRoom>
             <Number>3</Number>
-            <Description IsNull="True" />
+            <Description xml:space="preserve">Style Editor for ImGi </Description>
+          </UnloadedRoom>
+          <UnloadedRoom>
+            <Number>4</Number>
+            <Description xml:space="preserve">The End</Description>
           </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>

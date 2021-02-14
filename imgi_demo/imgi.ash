@@ -82,6 +82,8 @@ managed struct ImGi_Style {
 
 builtin struct ImGi {
   
+  import static attribute ImGi_Style* Style;
+  
   /// Call only once per frame and make sure to call End() after
   import static void Begin();
   
