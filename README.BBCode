@@ -1,0 +1,137 @@
+# ImGi
+AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
+
+[img]docs/images/screenshot.gif[/img]
+
+[size=14pt][b]Usage[/b][/size]
+
+[code]function repeatedly_execute() // In Room Script, use room_RepExec() 
+{
+  ImGi.Begin(); 
+    
+  if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
+  {
+    int row[];
+                   
+    row = new int[2];
+    row[0] = 60; // set a predefined column width size per element in row
+    row[1] = 70; // this is the width of other column
+    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
+        
+    ImGi.Label("A Label:");
+    if(ImGi.Button("A Button!"))
+    {
+      player.Say("You clicked the button!");
+    }    
+  
+    ImGi.EndWindow();
+  }
+    
+  ImGi.End();  
+}[/code]
+
+[size=14pt][b]Script API[/b][/size]
+
+ImGi entire API uses static functions and attributes
+
+[size=12pt][b]Basic[/b][/size]
+
+[h4][code single] ImGi.Begin[/code][/h4]
+[code]void ImGi.Begin()[/code]
+Call only once per frame and make sure to call End() after.
+
+[h4][code single]ImGi.End[/code][/h4]
+[code]void ImGi.End()[/code]
+Call only once per frame, after Begin() is called.
+
+
+---
+
+[size=12pt][b]Layout System[/b][/size]
+
+[h4][code single]ImGi.LayoutRow[/code][/h4]
+[code]void ImGi.LayoutRow(int count, int widths[], int height = 0)[/code]
+Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
+
+
+---
+
+[size=12pt][b]Window[/b][/size]
+
+A window can be created by a [code single]BeginWindow[/code] and if this is successful (returns any non false value),
+it has to call EndWindow to specify where it logically ends.
+All controls must exist within a window.
+
+[h4][code single]ImGi.BeginWindow[/code][/h4]
+[code]ImGi_Res ImGi.BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0)[/code]
+Creates a window, make sure to call a matching EndWindow() if this method return is not false.
+
+[h4][code single]ImGi.EndWindow[/code][/h4]
+[code]void ImGi.EndWindow()[/code]
+Has to be called each time a BeginWindow is successful once all elements inside the window are listed
+
+[h4][code single]ImGi.OpenWindow[/code][/h4]
+[code]void ImGi.OpenWindow(String title)[/code]
+If a window of matching title is closed, it opens again.
+
+---
+
+[size=12pt][b]Controls[/b][/size]
+
+Controls are things you can place inside a window. Controls cannot exist outside of windows.
+
+[h4][code single]ImGi.Label[/code][/h4]
+[code]void ImGi.Label(String label)[/code]
+[img]docs/images/ctrl_label.gif[/img]
+
+This control is a Label containing the specified text.
+
+[h4][code single]ImGi.Text[/code][/h4]
+[code]void ImGi.Text(String text)[/code]
+[img]docs/images/ctrl_text.gif[/img]
+
+This control is a Multiline Label for visualization only.
+
+[h4][code single]ImGi.TextBox[/code][/h4]
+[code]String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)[/code]
+This control is an editable TextBox.
+
+[h4][code single]ImGi.Button[/code][/h4]
+[code]ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)[/code]
+[img]docs/images/ctrl_button.gif[/img]
+
+his control is a Button.
+
+[h4][code single]ImGi.CheckBox[/code][/h4]
+[code]mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)[/code]
+[img]docs/images/ctrl_checkbox.gif[/img]
+
+This control is a CheckBox.
+
+[h4][code single]ImGi.Number[/code][/h4]
+[code]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)[/code]
+[img]docs/images/ctrl_number.gif[/img]
+
+This control shows a Number, set step to allow quick mouse drag adjustments
+
+[h4][code single]ImGi.Slider[/code][/h4]
+[code]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)[/code]
+[img]docs/images/ctrl_slider.gif[/img]
+
+This control is a Slider.
+
+
+---
+
+[size=12pt][b]Style and Design customization[/b][/size]
+
+[h4][code single]ImGi.Style[/code][/h4]
+[code]ImGi_Style* ImGi.Style[/code]
+Holds the Current Style for ImGi.
+
+
+---
+
+[size=14pt][b]License[/b][/size]
+
+This code is licensed with MIT [url=LICENSE][tt]LICENSE[/tt][/url]. The code on this module is based on rxi's Microui, which is also MIT licensed, referenced in the license, this port though has many changes - lots of new bugs too.
