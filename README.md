@@ -87,6 +87,13 @@ void ImGi.EndWindow()
 
 Has to be called each time a BeginWindow is successful once all elements inside the window are listed
 
+#### `ImGi.OpenWindow`
+```
+void ImGi.OpenWindow(String title)
+```
+
+If a window of matching title is closed, it opens again.
+
 ---
 
 ### Controls
