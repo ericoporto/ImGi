@@ -1,5 +1,7 @@
 # ImGi
-AGS Script Module for Immediate Gui (based on rxi's Microui)
+AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
+
+![](docs/images/screenshot.gif)
 
 ## usage
 
@@ -96,12 +98,16 @@ Controls are things you can place inside a window. Controls cannot exist outside
 void ImGi.Label(String label)
 ```
 
+![](docs/images/ctrl_label.gif)
+
 This control is a Label containing the specified text.
 
 #### `ImGi.Text`
 ```
 void ImGi.Text(String text)
 ```
+
+![](docs/images/ctrl_text.gif)
 
 This control is a Multiline Label for visualization only.
 
@@ -117,12 +123,16 @@ This control is an editable TextBox.
 ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)
 ```
 
+![](docs/images/ctrl_button.gif)
+
 his control is a Button.
 
 #### `ImGi.CheckBox`
 ```
 mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)
 ```
+
+![](docs/images/ctrl_checkbox.gif)
 
 This control is a CheckBox.
 
@@ -131,12 +141,16 @@ This control is a CheckBox.
 ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)
 ```
 
+![](docs/images/ctrl_number.gif)
+
 This control shows a Number, set step to allow quick mouse drag adjustments
 
 #### `ImGi.Slider`
 ```
 ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)
 ```
+
+![](docs/images/ctrl_slider.gif)
 
 This control is a Slider.
 
@@ -157,4 +171,4 @@ Holds the Current Style for ImGi.
 
 ## License
 
-This code is licensed with MIT [`LICENSE`](LICENSE).
+This code is licensed with MIT [`LICENSE`](LICENSE). The code on this module is based on rxi's Microui, which is also MIT licensed and is referenced in the license, this port though has many changes.
