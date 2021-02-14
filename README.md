@@ -1,5 +1,7 @@
 # ImGi
-AGS Script Module for Immediate Gui (based on rxi's Microui)
+AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
+
+![](docs/images/screenshot.gif)
 
 ## usage
 
@@ -169,4 +171,4 @@ Holds the Current Style for ImGi.
 
 ## License
 
-This code is licensed with MIT [`LICENSE`](LICENSE).
+This code is licensed with MIT [`LICENSE`](LICENSE). The code on this module is based on rxi's Microui, which is also MIT licensed and is referenced in the license, this port though has many changes.
