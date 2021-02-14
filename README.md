@@ -44,12 +44,16 @@ ImGi entire API uses static functions and attributes
 ### Basic
 
 #### ` ImGi.Begin`
-```void ImGi.Begin()```
+```
+void ImGi.Begin()
+```
 
 Call only once per frame and make sure to call End() after.
 
 #### `ImGi.End`
-```void ImGi.End()```
+```
+void ImGi.End()
+```
 
 Call only once per frame, after Begin() is called.
 
@@ -69,47 +73,65 @@ Pass an array of widths with count elements to configure the columns in a row. Y
 ### Controls
 
 #### `ImGi.BeginWindow`
-```ImGi_Res ImGi.BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0)```
+```
+ImGi_Res ImGi.BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0)
+```
 
 Creates a window, make sure to call a matching EndWindow() if this method return is not false.
 
 #### `ImGi.EndWindow`
-```void ImGi.EndWindow()```
+```
+void ImGi.EndWindow()
+```
 
 Has to be called each time a BeginWindow is successful once all elements inside the window are listed
 
 #### `ImGi.Label`
-```void ImGi.Label(String label)```
+```
+void ImGi.Label(String label)
+```
 
 This control is a Label containing the specified text.
 
 #### `ImGi.Text`
-```void ImGi.Text(String text)```
+```
+void ImGi.Text(String text)
+```
 
 This control is a Multiline Label for visualization only.
 
 #### `ImGi.TextBox`
-```String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)```
+```
+String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)
+```
 
 This control is an editable TextBox.
 
 #### `ImGi.Button`
-```ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)```
+```
+ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)
+```
 
 his control is a Button.
 
 #### `ImGi.CheckBox`
-```mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)```
+```
+mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)
+```
 
 This control is a CheckBox.
 
 #### `ImGi.Number`
-```ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)```
+```
+ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)
+```
 
 This control shows a Number, set step to allow quick mouse drag adjustments
 
 #### `ImGi.Slider`
-```ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)```
+```
+ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)
+```
 
 This control is a Slider.
 
@@ -119,7 +141,9 @@ This control is a Slider.
 ### Style and Design customisation
 
 #### `ImGi.Style`
-```ImGi_Style* ImGi.Style```
+```
+ImGi_Style* ImGi.Style
+```
 
 Holds the Current Style for ImGi.
 
