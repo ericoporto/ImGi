@@ -1,4 +1,10 @@
 // ImGi Module Header
+//
+//   ImGi is a Immediate GUI for Adventure Game Studio!
+//   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
+//
+//   Avoid looking into ImGi internals for now since there's a lot of Work In Progress
+// and try to concentrate on the public interface that is accessible through the Header.
 
 // module enums
 enum ImGi_Opt {
@@ -77,17 +83,20 @@ managed struct ImGi_Style {
   int scrollbar_size;
   int thumb_size;
   int colors[eImGi_Col_MAX];
+  
+  /// Properly creates a style with default configs. 
   import static ImGi_Style* Create(); // $AUTOCOMPLETESTATICONLY$  
 };
 
 builtin struct ImGi {
   
+  /// Holds the Current Style for ImGi.
   import static attribute ImGi_Style* Style;
   
-  /// Call only once per frame and make sure to call End() after
+  /// Call only once per frame and make sure to call End() after.
   import static void Begin();
   
-  /// Call only once per frame, after Begin() is called
+  /// Call only once per frame, after Begin() is called.
   import static void End();
   
   // Layout  
@@ -97,39 +106,30 @@ builtin struct ImGi {
   
   // Controls
   
-  /// Creates a window, make sure to call a matching EndWindow() if this method return is not false
+  /// Creates a window, make sure to call a matching EndWindow() if this method return is not false.
   import static ImGi_Res BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0);
   
   /// Has to be called each time a BeginWindow is successful once all elements inside the window are listed
   import static void EndWindow();
-   
-  /// NOT WORKING YET! 
-  import static void OpenPopup(String name);
-  
-  /// NOT WORKING YET!
-  import static ImGi_Res BeginPopup(String name);
-  
-  /// NOT WORKING YET!
-  import static void EndPopup();
-  
-  /// This control is a Label containing the specified text
+     
+  /// This control is a Label containing the specified text.
   import static void Label(String label);
   
-  /// This control is a Multiline Label
+  /// This control is a Multiline Label for visualization only.
   import static void Text(String text);
   
-  /// This control is an editable TextBox
-  import static String TextBox(String label, ImGi_Result* res, String buf, int bufsz, ImGi_Opt opt = 0);
+  /// This control is an editable TextBox.
+  import static String TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0);
   
-  /// This control shows a Number, set step to allow quick mouse drag adjustment.
+  /// This control shows a Number, set step to allow quick mouse drag adjustments.
   import static ImGi_Res Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0);
   
-  /// This control is a Slider
+  /// This control is a Slider.
   import static ImGi_Res Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0);
   
-  /// This control is a Button
+  /// This control is a Button.
   import static ImGi_Res Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter);
   
-  /// This control is a CheckBox
+  /// This control is a CheckBox.
   import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
 };
