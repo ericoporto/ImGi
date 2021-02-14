@@ -1,5 +1,7 @@
 // ImGi Module Header
 //
+//                   ImGi Version 0.1.0
+//
 //   ImGi is a Immediate GUI for Adventure Game Studio!
 //   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
 //
@@ -133,3 +135,6 @@ builtin struct ImGi {
   /// This control is a CheckBox.
   import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
 };
+
+// ImGi code is licensed with MIT LICENSE. Copyright (c) 2021 Erico Vieira Porto
+// ImGi is based on microui, which is MIT licensed too. Microuis is Copyright (c) 2020 rxi
