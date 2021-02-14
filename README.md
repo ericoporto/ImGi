@@ -65,7 +65,11 @@ Pass an array of widths with count elements to configure the columns in a row. Y
 
 ---
 
-### Controls
+### Window
+
+A window can be created by a `BeginWindow` and if this is successful (returns any non false value),
+it has to call EndWindow to specify where it logically ends.
+All controls must exist within a window.
 
 #### `ImGi.BeginWindow`
 ```
@@ -80,6 +84,12 @@ void ImGi.EndWindow()
 ```
 
 Has to be called each time a BeginWindow is successful once all elements inside the window are listed
+
+---
+
+### Controls
+
+Controls are things you can place inside a window. Controls cannot exist outside of windows.
 
 #### `ImGi.Label`
 ```
