@@ -113,6 +113,9 @@ builtin struct ImGi {
   
   /// Has to be called each time a BeginWindow is successful once all elements inside the window are listed
   import static void EndWindow();
+  
+  /// Opens a window that was closed
+  import static void OpenWindow(String title);
      
   /// This control is a Label containing the specified text.
   import static void Label(String label);
