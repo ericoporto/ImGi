@@ -10,12 +10,12 @@ function repeatedly_execute() // In Room Script, use room_RepExec()
     
   if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
   {
-    int rows[];
+    int row[];
                    
-    rows = new int[2];
-    rows[0] = 60; // set a predefined column width size per element in row
-    rows[1] = 70; // this is the width of other column
-    ImGi.LayoutRow(2 /*n columns*/, rows); // rows after this line have such column config
+    row = new int[2];
+    row[0] = 60; // set a predefined column width size per element in row
+    row[1] = 70; // this is the width of other column
+    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
         
     ImGi.Label("A Label:");
     if(ImGi.Button("A Button!"))
