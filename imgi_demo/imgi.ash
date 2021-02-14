@@ -136,5 +136,5 @@ builtin struct ImGi {
   import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
 };
 
-// ImGi code is licensed with MIT LICENSE. Copyright (c) 2021 Erico Vieira Porto
+// ImGi code is licensed with MIT LICENSE. Copyright (c) 2021 eri0o
 // ImGi is based on microui, which is MIT licensed too. Microuis is Copyright (c) 2020 rxi
