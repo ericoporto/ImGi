@@ -8,7 +8,7 @@
       <UniqueID>3324487</UniqueID>
       <GUIDAsString>{d3819db5-5668-4e7f-8b1d-011beb05178c}</GUIDAsString>
       <ColorDepth>TrueColor</ColorDepth>
-      <CustomResolution>320,200</CustomResolution>
+      <CustomResolution>640,400</CustomResolution>
       <AllowRelativeAssetResolutions>False</AllowRelativeAssetResolutions>
       <CompressSprites>False</CompressSprites>
       <SaveScreenshots>False</SaveScreenshots>
@@ -650,6 +650,10 @@
             <Number>2</Number>
             <Description IsNull="True" />
           </UnloadedRoom>
+          <UnloadedRoom>
+            <Number>3</Number>
+            <Description IsNull="True" />
+          </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>
     </Rooms>
@@ -660,8 +664,8 @@
           <GUIMain>
             <NormalGUI>
               <OnClick />
-              <Height>14</Height>
-              <Width>320</Width>
+              <Height>28</Height>
+              <Width>640</Width>
               <Left>0</Left>
               <Top>0</Top>
               <Clickable>True</Clickable>
@@ -682,11 +686,11 @@
                 <TextColor>19248</TextColor>
                 <Font>0</Font>
                 <Text>@GAMENAME@</Text>
-                <Height>10</Height>
+                <Height>20</Height>
                 <Locked>True</Locked>
-                <Width>100</Width>
-                <Left>2</Left>
-                <Top>1</Top>
+                <Width>200</Width>
+                <Left>4</Left>
+                <Top>2</Top>
                 <ZOrder>0</ZOrder>
                 <ID>0</ID>
                 <Name>lblGameName</Name>
@@ -699,11 +703,11 @@
                 <TextColor>19248</TextColor>
                 <Font>0</Font>
                 <Text xml:space="preserve">Score: @SCORE@</Text>
-                <Height>10</Height>
+                <Height>20</Height>
                 <Locked>True</Locked>
-                <Width>70</Width>
-                <Left>250</Left>
-                <Top>1</Top>
+                <Width>140</Width>
+                <Left>500</Left>
+                <Top>2</Top>
                 <ZOrder>1</ZOrder>
                 <ID>1</ID>
                 <Name>lblScore</Name>
@@ -716,11 +720,11 @@
                 <TextColor>19248</TextColor>
                 <Font>0</Font>
                 <Text>@OVERHOTSPOT@</Text>
-                <Height>10</Height>
+                <Height>20</Height>
                 <Locked>True</Locked>
-                <Width>320</Width>
+                <Width>640</Width>
                 <Left>0</Left>
-                <Top>1</Top>
+                <Top>2</Top>
                 <ZOrder>2</ZOrder>
                 <ID>2</ID>
                 <Name>lblOverHotspot</Name>
@@ -733,8 +737,8 @@
           <GUIMain>
             <NormalGUI>
               <OnClick />
-              <Height>29</Height>
-              <Width>320</Width>
+              <Height>30</Height>
+              <Width>640</Width>
               <Left>0</Left>
               <Top>0</Top>
               <Clickable>True</Clickable>
@@ -762,11 +766,11 @@
                 <MouseoverImage>2101</MouseoverImage>
                 <Image>2100</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>1</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>2</Left>
+                <Top>2</Top>
                 <ZOrder>0</ZOrder>
                 <ID>0</ID>
                 <Name>btnIconWalk</Name>
@@ -786,11 +790,11 @@
                 <MouseoverImage>2105</MouseoverImage>
                 <Image>2104</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>33</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>66</Left>
+                <Top>2</Top>
                 <ZOrder>1</ZOrder>
                 <ID>1</ID>
                 <Name>btnIconExamine</Name>
@@ -810,11 +814,11 @@
                 <MouseoverImage>2109</MouseoverImage>
                 <Image>2108</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>65</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>130</Left>
+                <Top>2</Top>
                 <ZOrder>2</ZOrder>
                 <ID>2</ID>
                 <Name>btnIconInteract</Name>
@@ -834,11 +838,11 @@
                 <MouseoverImage>2113</MouseoverImage>
                 <Image>2112</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>97</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>194</Left>
+                <Top>2</Top>
                 <ZOrder>3</ZOrder>
                 <ID>3</ID>
                 <Name>btnIconTalk</Name>
@@ -858,11 +862,11 @@
                 <MouseoverImage>2121</MouseoverImage>
                 <Image>2120</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>129</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>258</Left>
+                <Top>2</Top>
                 <ZOrder>4</ZOrder>
                 <ID>4</ID>
                 <Name>btnIconInv</Name>
@@ -882,11 +886,11 @@
                 <MouseoverImage>2124</MouseoverImage>
                 <Image>2124</Image>
                 <Text>(INVSHR)</Text>
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>161</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>322</Left>
+                <Top>2</Top>
                 <ZOrder>5</ZOrder>
                 <ID>5</ID>
                 <Name>btnIconCurInv</Name>
@@ -906,11 +910,11 @@
                 <MouseoverImage>2129</MouseoverImage>
                 <Image>2128</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>193</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>386</Left>
+                <Top>2</Top>
                 <ZOrder>6</ZOrder>
                 <ID>6</ID>
                 <Name>btnIconSave</Name>
@@ -930,11 +934,11 @@
                 <MouseoverImage>2133</MouseoverImage>
                 <Image>2132</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>225</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>450</Left>
+                <Top>2</Top>
                 <ZOrder>7</ZOrder>
                 <ID>7</ID>
                 <Name>btnIconLoad</Name>
@@ -954,11 +958,11 @@
                 <MouseoverImage>2141</MouseoverImage>
                 <Image>2140</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>289</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>578</Left>
+                <Top>2</Top>
                 <ZOrder>8</ZOrder>
                 <ID>8</ID>
                 <Name>btnIconExit</Name>
@@ -978,11 +982,11 @@
                 <MouseoverImage>2137</MouseoverImage>
                 <Image>2136</Image>
                 <Text />
-                <Height>27</Height>
+                <Height>54</Height>
                 <Locked>False</Locked>
-                <Width>32</Width>
-                <Left>257</Left>
-                <Top>1</Top>
+                <Width>64</Width>
+                <Left>514</Left>
+                <Top>2</Top>
                 <ZOrder>9</ZOrder>
                 <ID>9</ID>
                 <Name>btnIconAbout</Name>
