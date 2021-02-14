@@ -63,7 +63,9 @@ Call only once per frame, after Begin() is called.
 ### Layout System
 
 #### `ImGi.LayoutRow`
-```void ImGi.LayoutRow(int count, int widths[], int height = 0)```
+```
+void ImGi.LayoutRow(int count, int widths[], int height = 0)
+```
 
 Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
 
