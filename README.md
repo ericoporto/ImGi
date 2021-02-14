@@ -9,20 +9,14 @@ function room_RepExec() // alternatively use repeatedly_execute()
 {
   ImGi.Begin(); 
     
-  if(ImGi.BeginWindow("Hello World", 170, 140, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
+  if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
   {
     int rows[];
-        
-    rows = new int[1];
-    rows[0] = 130;           // set a predefined column width size per element in row
-    ImGi.LayoutRow(1, rows);  // rows after this line have such column config
-       
-    ImGi.Text("Welcome to ImGi!\nClick and drag the title header of this window to move it!");
-           
+                   
     rows = new int[2];
-    rows[0] = 60;
-    rows[1] = 70;
-    ImGi.LayoutRow(2, rows); // reconfig rows for two collumn
+    rows[0] = 60; // set a predefined column width size per element in row
+    rows[1] = 70; // this is the width of other column
+    ImGi.LayoutRow(2, rows); // rows after this line have such column config
         
     ImGi.Label("A Label:");
     if(ImGi.Button("A Button!"))
