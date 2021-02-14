@@ -178,4 +178,4 @@ Holds the Current Style for ImGi.
 
 ## License
 
-This code is licensed with MIT [`LICENSE`](LICENSE). The code on this module is based on rxi's Microui, which is also MIT licensed and is referenced in the license, this port though has many changes.
+This code is licensed with MIT [`LICENSE`](LICENSE). The code on this module is based on rxi's Microui, which is also MIT licensed and is referenced in the license, this port though has many changes - and new bugs.
