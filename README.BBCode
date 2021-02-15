@@ -1,0 +1,133 @@
+[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.1.0 [/b][/color]
+
+[url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/master.zip] Download project .zip [/url]
+
+AGS Script Module for Immediate Gui, uses script Overlays to render the interface. 
+
+[color=red][glow=white,2,300][b]This is alfa quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
+
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/screenshot.gif[/img]
+
+[size=14pt][b]Usage[/b][/size]
+[spoiler]
+[code=ags]function repeatedly_execute() // In Room Script, use room_RepExec() 
+{
+  ImGi.Begin(); 
+    
+  if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
+  {
+    int row[];
+                   
+    row = new int[2];
+    row[0] = 60; // set a predefined column width size per element in row
+    row[1] = 70; // this is the width of other column
+    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
+        
+    ImGi.Label("A Label:");
+    if(ImGi.Button("A Button!"))
+    {
+      player.Say("You clicked the button!");
+    }    
+  
+    ImGi.EndWindow();
+  }
+    
+  ImGi.End();  
+}[/code][/spoiler]
+
+[size=14pt][b]Script API[/b][/size]
+[spoiler]
+ImGi entire API uses static functions and attributes
+
+[size=12pt][b]Basic[/b][/size]
+
+[b][tt]ImGi.Begin[/tt][/b]
+[code=ags]void ImGi.Begin()[/code]
+Call only once per frame and make sure to call End() after.
+
+[b][tt]ImGi.End[/tt][/b]
+[code=ags]void ImGi.End()[/code]
+Call only once per frame, after Begin() is called.
+[hr]
+
+[size=12pt][b]Layout System[/b][/size]
+
+[b][tt]ImGi.LayoutRow[/tt][/b]
+[code=ags]void ImGi.LayoutRow(int count, int widths[], int height = 0)[/code]
+Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
+[hr]
+
+[size=12pt][b]Window[/b][/size]
+
+A window can be created by a [tt]BeginWindow[/tt] and if this is successful (returns any non false value),
+it has to call [tt]EndWindow[/tt] to specify where it logically ends.
+All controls must exist within a window.
+
+[b][tt]ImGi.BeginWindow[/tt][/b]
+[code=ags]ImGi_Res ImGi.BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0)[/code]
+Creates a window, make sure to call a matching EndWindow() if this method return is not false.
+
+[b][tt]ImGi.EndWindow[/tt][/b]
+[code=ags]void ImGi.EndWindow()[/code]
+Has to be called each time a BeginWindow is successful once all elements inside the window are listed
+
+[b][tt]ImGi.OpenWindow[/tt][/b]
+[code=ags]void ImGi.OpenWindow(String title)[/code]
+If a window of matching title is closed, it opens again.
+[hr]
+
+[size=12pt][b]Controls[/b][/size]
+
+Controls are things you can place inside a window. Controls cannot exist outside of windows.
+
+[b][tt]ImGi.Label[/tt][/b]
+[code=ags]void ImGi.Label(String label)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_label.gif[/img]
+
+This control is a Label containing the specified text.
+
+[b][tt]ImGi.Text[/tt][/b]
+[code=ags]void ImGi.Text(String text)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_text.gif[/img]
+
+This control is a Multiline Label for visualization only.
+
+[b][tt]ImGi.TextBox[/tt][/b]
+[code=ags]String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)[/code]
+This control is an editable TextBox.
+
+[b][tt]ImGi.Button[/tt][/b]
+[code=ags]ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_button.gif[/img]
+
+his control is a Button.
+
+[b][tt]ImGi.CheckBox[/tt][/b]
+[code=ags]mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_checkbox.gif[/img]
+
+This control is a CheckBox.
+
+[b][tt]ImGi.Number[/tt][/b]
+[code=ags]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_number.gif[/img]
+
+This control shows a Number, set step to allow quick mouse drag adjustments
+
+[b][tt]ImGi.Slider[/tt][/b]
+[code=ags]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)[/code]
+[img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_slider.gif[/img]
+
+This control is a Slider.
+[hr]
+
+[size=12pt][b]Style and Design customization[/b][/size]
+
+[b][tt]ImGi.Style[/tt][/b]
+[code=ags]ImGi_Style* ImGi.Style[/code]
+Holds the Current Style for ImGi.
+[hr][/spoiler]
+
+[size=14pt][b]License[/b][/size]
+
+This code is licensed with MIT [url=LICENSE][tt]LICENSE[/tt][/url]. The code on this module is based on rxi's Microui, which is also MIT licensed, referenced in the license, this port though has many changes - lots of new bugs too.
