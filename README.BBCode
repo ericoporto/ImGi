@@ -1,10 +1,10 @@
 [size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.1.0 [/b][/color]
 
-[url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/master.zip] Download project .zip [/url]
+[url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.1.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.1.0.zip] Download project .zip [/url]
 
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface. 
 
-[color=red][glow=white,2,300][b]This is alfa quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
+[color=red][glow=white,2,300][b]This is alfa quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
 
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/screenshot.gif[/img]
 
@@ -12,27 +12,27 @@ AGS Script Module for Immediate Gui, uses script Overlays to render the interfac
 [spoiler]
 [code=ags]function repeatedly_execute() // In Room Script, use room_RepExec() 
 {
-  ImGi.Begin(); 
-    
-  if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
-  {
-    int row[];
-                   
-    row = new int[2];
-    row[0] = 60; // set a predefined column width size per element in row
-    row[1] = 70; // this is the width of other column
-    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
-        
-    ImGi.Label("A Label:");
-    if(ImGi.Button("A Button!"))
-    {
-      player.Say("You clicked the button!");
-    }    
-  
-    ImGi.EndWindow();
-  }
-    
-  ImGi.End();  
+  ImGi.Begin(); 
+    
+  if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
+  {
+    int row[];
+                   
+    row = new int[2];
+    row[0] = 60; // set a predefined column width size per element in row
+    row[1] = 70; // this is the width of other column
+    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
+        
+    ImGi.Label("A Label:");
+    if(ImGi.Button("A Button!"))
+    {
+      player.Say("You clicked the button!");
+    }    
+  
+    ImGi.EndWindow();
+  }
+    
+  ImGi.End();  
 }[/code][/spoiler]
 
 [size=14pt][b]Script API[/b][/size]
