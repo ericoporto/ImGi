@@ -29,3 +29,8 @@ game28.dta
 
  # Log files
 warnings.log
+
+# specifics from this repo I want to ignore
+*.mtree
+*.tar.gz
+ags-tar.cmd
