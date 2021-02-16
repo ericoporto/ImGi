@@ -147,10 +147,10 @@ builtin struct ImGi {
   import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
   
   /// This control shows a Number, set step to allow quick mouse drag adjustments.
-  import static ImGi_Res Number(String label, ImGi_Real* value, String format = 0, float step = 0, ImGi_Opt opt = 0);
+  import static ImGi_Res Number(String label, ImGi_Real* value, float step = 0, String format = 0, ImGi_Opt opt = 0);
   
   /// This control is a Slider.
-  import static ImGi_Res Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0);  
+  import static ImGi_Res Slider(String label, ImGi_Real* value, float low, float high, float step = 0, String format = 0, ImGi_Opt opt = 0);  
 };
 
 // ImGi code is licensed with MIT LICENSE. Copyright (c) 2021 eri0o
