@@ -1,6 +1,6 @@
-[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.2.1 [/b][/color]
+[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.2.2 [/b][/color]
 
-[url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.2.1.zip] Download project .zip [/url]
+[url=https://github.com/ericoporto/ImGi/releases/download/0.2.2/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.2/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.2/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.2.2.zip] Download project .zip [/url]
 
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface. 
 
@@ -96,7 +96,7 @@ This control is a Multiline Label for visualization only. It has no interaction.
 
 [b][tt]ImGi.TextBox[/tt][/b]
 [code=ags]String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)[/code]
-This control is an editable TextBox.
+This control is an editable TextBox. Click on it to give focus and enter the text input with the keyboard. Enter exits focus.
 
 [b][tt]ImGi.Button[/tt][/b]
 [code=ags]ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)[/code]
@@ -114,7 +114,7 @@ This control is a CheckBox. It doesn't store state, so make sure to pass it's st
 [code=ags]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_number.gif[/img]
 
-This control shows a Number, set step to allow quick mouse drag adjustments.
+This control shows a Number, set step to allow quick mouse drag adjustments. Holding shift and clicking it allows entering input with the keyboard.
 
 [b][tt]ImGi.Slider[/tt][/b]
 [code=ags]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)[/code]
