@@ -1,10 +1,10 @@
-[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.2.0 [/b][/color]
+[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.2.1 [/b][/color]
 
-[url=https://github.com/ericoporto/ImGi/releases/download/0.2.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.2.0.zip] Download project .zip [/url]
+[url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.2.1/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.2.1.zip] Download project .zip [/url]
 
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface. 
 
-[color=red][glow=white,2,300][b]This is alfa quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
+[color=red][glow=white,2,300][b]This is beta quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
 
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/screenshot.gif[/img]
 
@@ -80,17 +80,19 @@ If a window of matching title is closed, it opens again.
 
 Controls are things you can place inside a window. Controls cannot exist outside of windows.
 
+Every controls takes a string as label, this string can't be empty and can't match the label of other control.
+
 [b][tt]ImGi.Label[/tt][/b]
 [code=ags]void ImGi.Label(String label)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_label.gif[/img]
 
-This control is a Label containing the specified text.
+This control is a Label containing the specified text. It has no interaction.
 
 [b][tt]ImGi.Text[/tt][/b]
 [code=ags]void ImGi.Text(String text)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_text.gif[/img]
 
-This control is a Multiline Label for visualization only.
+This control is a Multiline Label for visualization only. It has no interaction.
 
 [b][tt]ImGi.TextBox[/tt][/b]
 [code=ags]String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)[/code]
@@ -100,25 +102,25 @@ This control is an editable TextBox.
 [code=ags]ImGi_Res ImGi.Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_button.gif[/img]
 
-his control is a Button.
+This control is a Button. When clicked, it will return a value different than false.
 
 [b][tt]ImGi.CheckBox[/tt][/b]
-[code=ags]mGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)[/code]
+[code=ags]ImGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_checkbox.gif[/img]
 
-This control is a CheckBox.
+This control is a CheckBox. It doesn't store state, so make sure to pass it's state.
 
 [b][tt]ImGi.Number[/tt][/b]
 [code=ags]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_number.gif[/img]
 
-This control shows a Number, set step to allow quick mouse drag adjustments
+This control shows a Number, set step to allow quick mouse drag adjustments.
 
 [b][tt]ImGi.Slider[/tt][/b]
 [code=ags]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_slider.gif[/img]
 
-This control is a Slider.
+This control is a Slider. 
 [hr]
 
 [size=12pt][b]Style and Design customization[/b][/size]
@@ -130,4 +132,4 @@ Holds the Current Style for ImGi.
 
 [size=14pt][b]License[/b][/size]
 
-This code is licensed with MIT [url=LICENSE][tt]LICENSE[/tt][/url]. The code on this module is based on rxi's Microui, which is also MIT licensed, referenced in the license, this port though has many changes - lots of new bugs too.
+This code is licensed with MIT [url=https://github.com/ericoporto/ImGi/blob/main/LICENSE][tt]LICENSE[/tt][/url]. The code on this module is based on rxi's Microui, which is also MIT licensed, referenced in the license, this port though has many changes - lots of new bugs too.
