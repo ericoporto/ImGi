@@ -70,7 +70,7 @@
       <Description />
       <ReleaseDate>2021-02-16</ReleaseDate>
       <Genre>Adventure</Genre>
-      <Version>0.2.2.0</Version>
+      <Version>0.2.3.0</Version>
       <WindowsExperienceIndex>1</WindowsExperienceIndex>
       <DeveloperName>eri0o</DeveloperName>
       <DeveloperURL />
@@ -656,6 +656,10 @@
           </UnloadedRoom>
           <UnloadedRoom>
             <Number>4</Number>
+            <Description xml:space="preserve">Texting yourself</Description>
+          </UnloadedRoom>
+          <UnloadedRoom>
+            <Number>5</Number>
             <Description xml:space="preserve">The End</Description>
           </UnloadedRoom>
         </UnloadedRooms>

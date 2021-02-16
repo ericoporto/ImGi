@@ -1,6 +1,6 @@
 // ImGi Module Header
 //
-//                   ImGi Version 0.2.2
+//                   ImGi Version 0.2.3
 //
 //   ImGi is a Immediate GUI for Adventure Game Studio!
 //   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
