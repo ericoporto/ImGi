@@ -1,6 +1,6 @@
 // ImGi Module Header
 //
-//                   ImGi Version 0.2.1
+//                   ImGi Version 0.2.2
 //
 //   ImGi is a Immediate GUI for Adventure Game Studio!
 //   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
@@ -59,6 +59,11 @@ enum ImGi_Res {
   eImGi_Res_Change = 4
 };
 
+enum ImGi_Cfg_SkipFrames {
+  ImGi_Cfg_SkipFramesNone = 0,   
+  ImGi_Cfg_SkipFramesHalf = 2,
+};
+
 managed struct CheckBoxState
 {
   bool state;  
@@ -90,7 +95,16 @@ managed struct ImGi_Style {
   import static ImGi_Style* Create(); // $AUTOCOMPLETESTATICONLY$  
 };
 
+builtin managed struct ImGi_Config {
+  
+  /// Allows skipping frames which may alleviate performance in hi-res games
+  import static attribute ImGi_Cfg_SkipFrames SkipFrames; 
+};
+
 builtin struct ImGi {
+  
+  /// Holds the behavior config for ImGi
+  import static attribute ImGi_Config* Config;
   
   /// Holds the Current Style for ImGi.
   import static attribute ImGi_Style* Style;
@@ -133,7 +147,7 @@ builtin struct ImGi {
   import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
   
   /// This control shows a Number, set step to allow quick mouse drag adjustments.
-  import static ImGi_Res Number(String label, ImGi_Real* value, float step = 0, ImGi_Opt opt = 0);
+  import static ImGi_Res Number(String label, ImGi_Real* value, String format = 0, float step = 0, ImGi_Opt opt = 0);
   
   /// This control is a Slider.
   import static ImGi_Res Slider(String label, ImGi_Real* value, float low, float high, float step = 0, ImGi_Opt opt = 0);  
