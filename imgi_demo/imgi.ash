@@ -120,7 +120,7 @@ builtin struct ImGi {
   /// Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
   import static void LayoutRow(int count, int widths[], int height = 0);
   
-  // Controls
+  // Containers
   
   /// Creates a window, make sure to call a matching EndWindow() if this method return is not false.
   import static ImGi_Res BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0);
@@ -130,6 +130,20 @@ builtin struct ImGi {
   
   /// Opens a window that was closed
   import static void OpenWindow(String title);
+     
+  /// Creates a popup that opens at mouse position and stays. If it returns successful, you have to call EndPopup() after.
+  import static ImGi_Res BeginPopup(String name);
+
+  /// Has to be called each time a BeginPopup is successful once all elements inside the popup are listed
+  import static void EndPopup();
+     
+  /// Open the Popup with matching name, has to be called at same level BeginPopup is. 
+  import static void OpenPopup(String name);
+  
+  /// Closes what is the current scope (Window, Popup, ...). Don't call it outside of a Window, a Popup, ...
+  import static void Close();
+
+  // Controls
      
   /// This control is a Label containing the specified text.
   import static void Label(String label);
