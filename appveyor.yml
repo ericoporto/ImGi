@@ -16,7 +16,7 @@ deploy:
 - provider: GitHub
   auth_token:
     secure: 0FI9i4tjFfPJYT2ModUijy23Pe3iYp6bizTQR5A4b7uUUwTu7YrniPtcq7JljWG/
-  artifact: [imgi_demo_linux.tar.gz, imgi_demo_windows.zip]
+  artifact: imgi*
   draft: false
   prerelease: false
   on:
