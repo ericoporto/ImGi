@@ -13,12 +13,14 @@ artifacts:
   name: imgi_demo_windows.zip
 - path: dev_scripts\DIST\imgi.scm
   name: imgi.scm
+- path: package.json
+  name: package.json
   
 deploy:
 - provider: GitHub
   auth_token:
     secure: wZdCrU9dcec59hLKrRi7G6N4mWamWoDHcGTe4T2P5YJsV7CEYCyEcDwulO0V3bzK
-  artifact: imgi.scm, imgi_demo_linux.tar.gz, imgi_demo_windows.zip
+  artifact: imgi.scm, imgi_demo_linux.tar.gz, imgi_demo_windows.zip, package.json
   draft: false
   prerelease: false
   force_update: true          # it can't edit a release artifact if this is false
