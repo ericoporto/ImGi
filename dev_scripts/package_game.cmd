@@ -9,7 +9,8 @@ if not defined TAR (
 
 "%TAR%" --help | find "(bsdtar)" >nul || goto :ERROR-WRONGTAR
 
-set GAME_NAME=imgi_demo
+set MODULE_NAME=imgi
+set GAME_NAME=%MODULE_NAME%_demo
 set GAME_LINUX_NAME=%GAME_NAME%_linux
 set GAME_WINDOWS_NAME=%GAME_NAME%_windows
 set THISDIR=%~dp0
@@ -38,6 +39,7 @@ set COMPILEDDIRLINUX="%AGSGAMEPROJECT%\Compiled\Linux"
 xcopy /e /k /h /i "%COMPILEDDIRWINDOWS%\*" "%BUILDDIRWINDOWS%"
 xcopy /e /k /h /i "%COMPILEDDIRLINUX%\*" "%BUILDDIRLINUX%"
 
+
 rem Remove warnings.log and friends
 del "%BUILDDIRWINDOWS%\*.log" /f /q /s
 
@@ -47,6 +49,22 @@ call "%AGSTAR%" "%BUILDDIRLINUX%\%GAME_NAME%"
 del /q %GAME_NAME%.mtree
 ren %GAME_NAME%.tar.gz %GAME_LINUX_NAME%.tar.gz
 popd
+
+rem Module export part
+set MB_MODULEDIR=%THISDIR%\MODULE
+set MB_EXPORTER=%THISDIR%\AGSModuleExporter.exe
+set MB_ASC=%MODULE_NAME%.asc
+set MB_ASH=%MODULE_NAME%.ash
+set MB_XML=%MODULE_NAME%.xml
+set MB_SCM=%MODULE_NAME%.scm
+
+md "%MB_MODULEDIR%"
+del "%MB_MODULEDIR%\*" /f /q /s
+
+xcopy "%AGSGAMEPROJECT%\%MB_ASC%" "%MB_MODULEDIR%"
+xcopy "%AGSGAMEPROJECT%\%MB_ASH%" "%MB_MODULEDIR%"
+xcopy "%AGSGAMEPROJECT%\..\%MB_XML%" "%MB_MODULEDIR%"
+"%MB_EXPORTER%" -script "%MB_MODULEDIR%\%MB_ASC%" -module "%MB_MODULEDIR%\%MB_SCM%"
 
 goto :END
 
