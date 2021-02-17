@@ -2,7 +2,7 @@
 
 The files here are batch and other scripts that may be useful to run steps on the CI system or at the computer.
 
-For now I am foccusing on having they working in the CI system, ***please read them before running***.
+Scripts are used in [`appveyor.yml`](https://github.com/ericoporto/ImGi/blob/main/appveyor.yml), in your computer ***please read them before running***.
 
 ---
 
