@@ -1,15 +1,24 @@
 version: 1.0.{build}
 image: Visual Studio 2019
-# init:
-#   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-install:
-  - cd %APPVEYOR_BUILD_FOLDER%
+
 build_script:
   - call dev_scripts\install_dependencies.cmd
   - call dev_scripts\build_game.cmd
   - call dev_scripts\package_game.cmd
+
 artifacts:
 - path: dev_scripts\DIST\imgi_demo_linux.tar.gz
   name: imgi_demo_linux.tar.gz
 - path: dev_scripts\DIST\imgi_demo_windows.zip
   name: imgi_demo_windows.zip
+  
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: 0FI9i4tjFfPJYT2ModUijy23Pe3iYp6bizTQR5A4b7uUUwTu7YrniPtcq7JljWG/
+  artifact: [imgi_demo_linux.tar.gz, imgi_demo_windows.zip]
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
