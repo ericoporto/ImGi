@@ -1,0 +1,1 @@
+this may sound ridiculous but I am using music to profile my game, because it's the only decent resolution timer I could find in AGS API. I miss doing plugins.

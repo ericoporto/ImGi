@@ -78,7 +78,7 @@
       <SaveGameFileExtension />
       <SaveGameFolderName>imgi_demo</SaveGameFolderName>
       <BinaryFilesInSourceControl>False</BinaryFilesInSourceControl>
-      <AudioIndexer>0</AudioIndexer>
+      <AudioIndexer>1</AudioIndexer>
       <BuildTargets xml:space="preserve">Windows, Linux</BuildTargets>
       <RenderAtScreenResolution>UserDefined</RenderAtScreenResolution>
     </Settings>
@@ -4640,6 +4640,30 @@
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
+                <FileName>profiler.ash</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>1897370700</Key>
+                <IsHeader>True</IsHeader>
+              </Script>
+            </ScriptAndHeader_Header>
+            <ScriptAndHeader_Script>
+              <Script>
+                <FileName>profiler.asc</FileName>
+                <Name />
+                <Description />
+                <Author />
+                <Version />
+                <Key>1897370700</Key>
+                <IsHeader>False</IsHeader>
+              </Script>
+            </ScriptAndHeader_Script>
+          </ScriptAndHeader>
+          <ScriptAndHeader>
+            <ScriptAndHeader_Header>
+              <Script>
                 <FileName>imgi.ash</FileName>
                 <Name />
                 <Description />
@@ -4693,7 +4717,21 @@
         <SubFolders>
           <AudioClipFolder Name="Music">
             <SubFolders />
-            <AudioClips />
+            <AudioClips>
+              <AudioClip>
+                <ScriptName>aRain_calm</ScriptName>
+                <ID>0</ID>
+                <SourceFileName>Music/rain_calm.ogg</SourceFileName>
+                <Index>1</Index>
+                <Type>2</Type>
+                <BundlingType>InSeparateVOX</BundlingType>
+                <FileType>OGG</FileType>
+                <DefaultVolume>-1</DefaultVolume>
+                <DefaultPriority>Inherit</DefaultPriority>
+                <DefaultRepeat>Inherit</DefaultRepeat>
+                <FileLastModifiedDate>2021-02-17 20:44:41Z</FileLastModifiedDate>
+              </AudioClip>
+            </AudioClips>
             <AudioClipFolder>
               <DefaultVolume>100</DefaultVolume>
               <DefaultPriority>Inherit</DefaultPriority>
