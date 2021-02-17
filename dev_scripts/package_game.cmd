@@ -64,7 +64,7 @@ del "%MB_MODULEDIR%\*" /f /q /s
 xcopy "%AGSGAMEPROJECT%\%MB_ASC%" "%MB_MODULEDIR%"
 xcopy "%AGSGAMEPROJECT%\%MB_ASH%" "%MB_MODULEDIR%"
 xcopy "%AGSGAMEPROJECT%\..\%MB_XML%" "%MB_MODULEDIR%"
-"%MB_EXPORTER%" -script "%MB_MODULEDIR%\%MB_ASC%" -module "%MB_MODULEDIR%\%MB_SCM%"
+"%MB_EXPORTER%" -script "%MB_MODULEDIR%\%MB_ASC%" -module "%DISTDIR%\%MB_SCM%"
 
 goto :END
 

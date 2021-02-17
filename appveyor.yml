@@ -11,7 +11,7 @@ artifacts:
   name: imgi_demo_linux.tar.gz
 - path: dev_scripts\DIST\imgi_demo_windows.zip
   name: imgi_demo_windows.zip
-- path: imgi.scm
+- path: dev_scripts\DIST\imgi.scm
   name: imgi.scm
   
 deploy:
