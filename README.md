@@ -1,4 +1,6 @@
 # ImGi
+[![Build status](https://ci.appveyor.com/api/projects/status/tq90vg1if9bvdyie?svg=true)](https://ci.appveyor.com/project/ericoporto/imgi)
+
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
 
 ![](docs/images/screenshot.gif)
