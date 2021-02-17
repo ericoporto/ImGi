@@ -21,6 +21,7 @@ deploy:
   artifact: imgi*
   draft: false
   prerelease: false
+  force_update: true          # it can't edit a release artifact if this is false
   on:
-    branch: main                 # release from main branch only
-    appveyor_repo_tag: true      # deploy on tag push only
+    branch: main              # release from main branch only
+    appveyor_repo_tag: true   # deploy on tag push only
