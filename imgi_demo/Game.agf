@@ -4655,7 +4655,7 @@
                 <Name>ImGi</Name>
                 <Description>Script Module for Immediate Gui</Description>
                 <Author>eri0o</Author>
-                <Version>0.2.2</Version>
+                <Version>0.3.0</Version>
                 <Key>488029724</Key>
                 <IsHeader>False</IsHeader>
               </Script>
