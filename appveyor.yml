@@ -11,6 +11,8 @@ artifacts:
   name: imgi_demo_linux.tar.gz
 - path: dev_scripts\DIST\imgi_demo_windows.zip
   name: imgi_demo_windows.zip
+- path: imgi.scm
+  name: imgi.scm
   
 deploy:
 - provider: GitHub
@@ -20,5 +22,5 @@ deploy:
   draft: false
   prerelease: false
   on:
-    branch: master                 # release from master branch only
-    appveyor_repo_tag: true        # deploy on tag push only
+    branch: main                 # release from main branch only
+    appveyor_repo_tag: true      # deploy on tag push only
