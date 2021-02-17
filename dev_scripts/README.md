@@ -8,4 +8,6 @@ Scripts are used in [`appveyor.yml`](https://github.com/ericoporto/ImGi/blob/mai
 
 **`ags-tar.cmd`** is made by Morgan Willcock and available here: https://github.com/morganwillcock/ags-tar
 
-I am storing a copy of it here for build simplicity.
+**`AGSModuleExporter.exe`** is made by Michael Rittenhouse and available here: https://github.com/monkey0506/AGSModuleExporter
+
+I am storing a copy of them here for build simplicity.
