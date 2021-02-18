@@ -45,11 +45,11 @@ enum ImGi_Color{
 };
 
 enum ImGi_Icon {
-  eImGi_Icon_Close = 1,
-  eImGi_Icon_Check,
-  eImGi_Icon_Collapsed,
-  eImGi_Icon_Expanded,
-  eImGi_Icon_MAX
+  eImGi_Icon_Close = -1,
+  eImGi_Icon_Check = -2,
+  eImGi_Icon_Collapsed = -3,
+  eImGi_Icon_Expanded = -4,
+  eImGi_Icon_MAX = 5
 };
 
 enum ImGi_Res {
@@ -150,6 +150,9 @@ builtin struct ImGi {
   
   /// This control is a Multiline Label for visualization only.
   import static void Text(String text);
+  
+  /// This control is a Image, it renders a sprite and is for visualization only.
+  import static void Image(int graphic);
   
   /// This control is an editable TextBox.
   import static String TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0);
