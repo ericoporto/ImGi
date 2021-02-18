@@ -68,9 +68,9 @@
       <DefaultRoomMaskResolution>1</DefaultRoomMaskResolution>
       <GameExplorerEnabled>False</GameExplorerEnabled>
       <Description />
-      <ReleaseDate>2021-02-16</ReleaseDate>
+      <ReleaseDate>2021-02-17</ReleaseDate>
       <Genre>Adventure</Genre>
-      <Version>0.2.3.0</Version>
+      <Version>0.3.1.0</Version>
       <WindowsExperienceIndex>1</WindowsExperienceIndex>
       <DeveloperName>eri0o</DeveloperName>
       <DeveloperURL />
@@ -4655,7 +4655,7 @@
                 <Name>ImGi</Name>
                 <Description>Script Module for Immediate Gui</Description>
                 <Author>eri0o</Author>
-                <Version>0.3.0</Version>
+                <Version>0.3.1</Version>
                 <Key>488029724</Key>
                 <IsHeader>False</IsHeader>
               </Script>
