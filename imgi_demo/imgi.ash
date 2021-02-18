@@ -74,6 +74,12 @@ managed struct ImGi_Real
   float value;  
 };
 
+managed struct ImGi_Int
+{
+  int value;  
+};
+
+
 managed struct ImGi_Result
 {
   ImGi_Res state;  
@@ -168,6 +174,12 @@ builtin struct ImGi {
   
   /// This control is a Slider.
   import static ImGi_Res Slider(String label, ImGi_Real* value, float low, float high, float step = 0, String format = 0, ImGi_Opt opt = 0);  
+  
+  /// This control is a Slider for integers.
+  import static ImGi_Res SliderI(String label, ImGi_Int* value, int low, int high, int step = 0, String format = 0, ImGi_Opt opt = 0); 
+  
+  /// This control shows a integer Number, set step to allow quick mouse drag adjustments.
+  import static ImGi_Res NumberI(String label, ImGi_Int* value, int step = 0, String format = 0, ImGi_Opt opt = 0);
 };
 
 // ImGi code is licensed with MIT LICENSE. Copyright (c) 2021 eri0o
