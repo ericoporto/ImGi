@@ -131,6 +131,18 @@ builtin struct ImGi
 
   /// Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
   import static void LayoutRow(int count, int widths[], int height = 0);
+  
+  /// The layout of the next and following rows will have a single column of following width. You can optionally specify a height.
+  import static void LayoutRow1(int width, int height = 0);
+  
+  /// The layout of the next and following rows will have 2 columns of each specified widths. You can optionally specify a height.
+  import static void LayoutRow2(int w1, int w2, int height = 0);
+  
+  /// The layout of the next and following rows will have 3 columns of each specified widths. You can optionally specify a height.
+  import static void LayoutRow3(int w1, int w2, int w3, int height = 0);
+  
+  /// The layout of the next and following rows will have 4 columns of each specified widths. You can optionally specify a height.
+  import static void LayoutRow4(int w1, int w2, int w3, int w4, int height = 0);
 
   // Containers
 
