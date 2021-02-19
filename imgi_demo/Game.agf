@@ -2082,6 +2082,45 @@
               </GUILabel>
             </Controls>
           </GUIMain>
+          <GUIMain>
+            <NormalGUI>
+              <OnClick />
+              <Height>120</Height>
+              <Width>640</Width>
+              <Left>0</Left>
+              <Top>280</Top>
+              <Clickable>False</Clickable>
+              <Visible>True</Visible>
+              <PopupStyle>Normal</PopupStyle>
+              <PopupYPos>0</PopupYPos>
+              <ZOrder>0</ZOrder>
+              <BorderColor>0</BorderColor>
+              <Transparency>0</Transparency>
+              <BackgroundColor>0</BackgroundColor>
+              <BackgroundImage>0</BackgroundImage>
+              <ID>9</ID>
+              <Name>gDebugGui</Name>
+            </NormalGUI>
+            <Controls>
+              <GUILabel>
+                <TextAlignment>Left</TextAlignment>
+                <TextColor>65535</TextColor>
+                <Font>0</Font>
+                <Text xml:space="preserve">New Label</Text>
+                <Height>187</Height>
+                <Locked>False</Locked>
+                <Width>627</Width>
+                <Left>5</Left>
+                <Top>7</Top>
+                <ZOrder>0</ZOrder>
+                <ID>0</ID>
+                <Name>dbg_label</Name>
+                <Clickable>True</Clickable>
+                <Enabled>True</Enabled>
+                <Visible>True</Visible>
+              </GUILabel>
+            </Controls>
+          </GUIMain>
         </GUIs>
       </GUIFolder>
     </GUIs>
