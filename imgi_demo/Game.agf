@@ -2109,12 +2109,29 @@
                 <Text xml:space="preserve">New Label</Text>
                 <Height>187</Height>
                 <Locked>False</Locked>
-                <Width>627</Width>
+                <Width>400</Width>
                 <Left>5</Left>
-                <Top>6</Top>
+                <Top>3</Top>
                 <ZOrder>0</ZOrder>
                 <ID>0</ID>
                 <Name>dbg_label</Name>
+                <Clickable>True</Clickable>
+                <Enabled>True</Enabled>
+                <Visible>True</Visible>
+              </GUILabel>
+              <GUILabel>
+                <TextAlignment>Left</TextAlignment>
+                <TextColor>65048</TextColor>
+                <Font>1</Font>
+                <Text xml:space="preserve">New Label</Text>
+                <Height>111</Height>
+                <Locked>False</Locked>
+                <Width>221</Width>
+                <Left>413</Left>
+                <Top>3</Top>
+                <ZOrder>1</ZOrder>
+                <ID>1</ID>
+                <Name>label_clips</Name>
                 <Clickable>True</Clickable>
                 <Enabled>True</Enabled>
                 <Visible>True</Visible>
