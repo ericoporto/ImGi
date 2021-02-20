@@ -183,9 +183,12 @@ builtin struct ImGi
 
   /// This control is a Button.
   import static ImGi_Res Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter);
+  
+  /// Pass a sprite for the Button normal state, one for when mouse is over, and a graphic for when it's clicked. You can set label null if it's the only button in the window with same graphics.
+  import static ImGi_Res ButtonImage(String label, int graphic_normal, int graphic_over, int graphic_pressed, ImGi_Opt opt = 0);
 
   /// This control is a CheckBox.
-  import static ImGi_Res CheckBox(String label, CheckBoxState* chkst);
+  import static ImGi_Res CheckBox(String label, CheckBoxState* chkst, ImGi_Icon icon = eImGi_Icon_Check);
 
   /// This control shows a Number, set step to allow quick mouse drag adjustments.
   import static ImGi_Res Number(String label, ImGi_Real* value, float step = 0, String format = 0, ImGi_Opt opt = 0);
