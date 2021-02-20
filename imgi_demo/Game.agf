@@ -2365,7 +2365,7 @@
             <IdleView>0</IdleView>
             <ThinkingView>0</ThinkingView>
             <BlinkingView>0</BlinkingView>
-            <StartingRoom>5</StartingRoom>
+            <StartingRoom>1</StartingRoom>
             <StartX>127</StartX>
             <StartY>142</StartY>
             <UniformMovementSpeed>True</UniformMovementSpeed>
