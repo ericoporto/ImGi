@@ -2090,7 +2090,7 @@
               <Left>0</Left>
               <Top>280</Top>
               <Clickable>False</Clickable>
-              <Visible>True</Visible>
+              <Visible>False</Visible>
               <PopupStyle>Normal</PopupStyle>
               <PopupYPos>0</PopupYPos>
               <ZOrder>0</ZOrder>
