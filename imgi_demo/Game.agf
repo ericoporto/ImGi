@@ -2105,13 +2105,13 @@
               <GUILabel>
                 <TextAlignment>Left</TextAlignment>
                 <TextColor>65535</TextColor>
-                <Font>0</Font>
+                <Font>3</Font>
                 <Text xml:space="preserve">New Label</Text>
                 <Height>187</Height>
                 <Locked>False</Locked>
                 <Width>627</Width>
                 <Left>5</Left>
-                <Top>7</Top>
+                <Top>6</Top>
                 <ZOrder>0</ZOrder>
                 <ID>0</ID>
                 <Name>dbg_label</Name>
