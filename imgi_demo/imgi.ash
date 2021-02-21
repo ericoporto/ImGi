@@ -1,6 +1,6 @@
 // ImGi Module Header
 //
-//                   ImGi Version 0.4.0
+//                   ImGi Version 0.4.1
 //
 //   ImGi is a Immediate GUI for Adventure Game Studio!
 //   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
@@ -166,6 +166,17 @@ builtin struct ImGi
 
   /// Closes what is the current scope (Window, Popup, ...). Don't call it outside of a Window, a Popup, ...
   import static void Close();
+  
+  /// A panel has to be inside of a window, it will use the LayoutRow cell size for it's size. If it returns successful, you have to call EndPanel() after.
+  import static ImGi_Res BeginPanel(String name, ImGi_Opt opt = 0);
+
+  /// Call each time a BeginPanel is successful after all controls are listed. ex: if(ImGi.BeginPanel("Pan")){ /*ctrl*/ ImGi.EndPanel();}
+  import static void EndPanel();
+  
+  // Utilities
+  
+  /// Places the focus on what is the last control. Some controls behave differently when focused.
+  import static void SetFocusLastControl();
 
   // Controls
 
