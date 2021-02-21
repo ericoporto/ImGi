@@ -1,7 +1,7 @@
-[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.4.0 [/b][/color]
+[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.4.1 [/b][/color]
 [url=https://ci.appveyor.com/project/ericoporto/imgi][img]https://ci.appveyor.com/api/projects/status/tq90vg1if9bvdyie?svg=true[/img][/url]
 
-[url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.4.0.zip] Download project .zip [/url]
+[url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.4.1.zip] Download project .zip [/url]
 
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
 
@@ -118,6 +118,18 @@ void OpenPopup(String name)[/code]
 
 Popups are like windows, but you can't move or resize them, and they have no headers. They open where the mouse is when calling OpenPopup by default.
 Popups open on top of everything, and they close if you click outside of them. Clicks outside of the popup that hit no window will be forwarded to the rest of your game to handle.
+
+[b][tt]ImGi.BeginPanel[/tt][/b]
+[b][tt]ImGi.EndPanel[/tt][/b]
+[code=ags]ImGi_Res ImGi.BeginPanel(String name, ImGi_Opt opt = 0)
+void ImGi.EndPanel()[/code]
+
+If you need a scrollable area inside a window that is not the window itself, you can use panels! A panel has to be inside of a window, it will use the LayoutRow cell size for it's size. If it returns successful, you have to call EndPanel() after. 
+[code=ags]if(ImGi.BeginPanel("Pan")){
+  ImGi.Text("Hi panel!"); // your controls are here ...
+  ImGi.EndPanel();
+}[/code]
+
 [hr]
 
 [size=12pt][b]Controls[/b][/size]
@@ -209,6 +221,14 @@ Some controls and other elements can take options. Below is the list of availabl
 [tr][td][tt]eImGi_Opt_Closed[/tt][/td][td]Makes the container start closed by default.[/td][/tr]
 [tr][td][tt]eImGi_Opt_Expanded[/tt][/td][td]These are for tree elements, which are not implemented yet.[/td][/tr]
 [/table]
+
+[hr]
+
+[size=12pt][b]Utilities[/b][/size]
+
+[b][tt]ImGi.SetFocusLastControl[/tt][/b]
+[code=ags]void ImGi.SetFocusLastControl()[/code]
+Places the focus on what is the last control. Some controls behave differently when focused - like Number and TextBox. Focus is only reggarding input, but won't scroll or move things at center.
 
 [hr]
 
