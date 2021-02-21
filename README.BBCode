@@ -3,7 +3,7 @@
 
 [url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.0/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.4.0.zip] Download project .zip [/url]
 
-AGS Script Module for Immediate Gui, uses script Overlays to render the interface. 
+AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
 
 [color=red][glow=white,2,300][b]This is beta quality[/b][/glow][/color], I predict Overlays will enter into fashion in one of the next seasons so this module is being written for when the time comes.  8-)
 
@@ -11,29 +11,25 @@ AGS Script Module for Immediate Gui, uses script Overlays to render the interfac
 
 [size=14pt][b]Usage[/b][/size]
 [spoiler]
-[code=ags]function repeatedly_execute() // In Room Script, use room_RepExec() 
+[code=ags]function repeatedly_execute() // In Room Script, use room_RepExec()
 {
-  ImGi.Begin(); 
-    
+  ImGi.Begin();
+
   if(ImGi.BeginWindow("Hello World", 32, 32, 130, 60, eImGi_Opt_AlignCenter | eImGi_Opt_NoClose))
   {
-    int row[];
-                   
-    row = new int[2];
-    row[0] = 60; // set a predefined column width size per element in row
-    row[1] = 70; // this is the width of other column
-    ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config
-        
+    // makes following rows to have two columns of width 60 and 70, and let height be default
+    ImGi.LayoutRow2(60, 70);
+
     ImGi.Label("A Label:");
     if(ImGi.Button("A Button!"))
     {
       player.Say("You clicked the button!");
-    }    
-  
+    }
+
     ImGi.EndWindow();
   }
-    
-  ImGi.End();  
+
+  ImGi.End();
 }[/code][/spoiler]
 
 [size=14pt][b]Script API[/b][/size]
@@ -53,16 +49,49 @@ Call only once per frame, after Begin() is called.
 
 [size=12pt][b]Layout System[/b][/size]
 
+ImGi uses a row based layout system. Each row can have a number of columns (up to 16 columns), each with it's own width, and also a height.
+Controls then will be placed in this cell. If you don't change how rows are, it's assumed to keep same LayoutRow.
+
+If you don't specify a height, it will use your style size and padding. Places elements relative to the bottom. Controls may make height bigger than what you set.
+If your column width is 0, it will your style size and padding. A negative width will try to place that element at that distance relative from the rights.
+
+Some special Controls can force the width of it's specific column, ignoring the positive values you set, this can be useful if you don't know before hand their sizes.
+
+[b][tt]ImGi.LayoutRow1[/tt][/b]
+[b][tt]ImGi.LayoutRow2[/tt][/b]
+[b][tt]ImGi.LayoutRow3[/tt][/b]
+[b][tt]ImGi.LayoutRow4[/tt][/b]
+[code=ags]void ImGi.LayoutRow1(int width, int height = 0)
+void ImGi.LayoutRow2(int w1, int w2, int height = 0)
+void ImGi.LayoutRow3(int w1, int w2, int w3, int height = 0)
+void ImGi.LayoutRow4(int w1, int w2, int w3, int w4, int height = 0)[/code]
+Functions to configure the next LayoutRow to use, from a single column (LayoutRow1) up to four columns (LayoutRow4). Use these if you know you want either of these number of columns.
+You can optionally specify a height.
+
 [b][tt]ImGi.LayoutRow[/tt][/b]
 [code=ags]void ImGi.LayoutRow(int count, int widths[], int height = 0)[/code]
 Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
+
+This is useful if you are reading an array of things or have 5 or more columns in your layout. The maximum number of widths is 16.
+[code=ags]int row[];
+
+row = new int[2];
+row[0] = 60; // set a predefined column width size per element in row
+row[1] = 70; // this is the width of other column
+ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config[/code]
 [hr]
 
 [size=12pt][b]Window[/b][/size]
 
-A window can be created by a [tt]BeginWindow[/tt] and if this is successful (returns any non false value),
-it has to call [tt]EndWindow[/tt] to specify where it logically ends.
-All controls must exist within a window.
+A window can be created by a [tt]BeginWindow[/tt] and if this is successful (returns any non false value), it has to call [tt]EndWindow[/tt] to specify where it logically ends.
+All controls must exist within a window. An example of normal usage is below:
+
+[code=ags]if(ImGi.BeginWindow("My First Window!", 32, 32, 130, 60))
+{
+  ImGi.Text("Hi!"); // your controls are here ...
+  ImGi.EndWindow();
+}[/code]
+
 
 [b][tt]ImGi.BeginWindow[/tt][/b]
 [code=ags]ImGi_Res ImGi.BeginWindow(String title, int x, int y, int width, int height, ImGi_Opt opt = 0)[/code]
@@ -75,13 +104,29 @@ Has to be called each time a BeginWindow is successful once all elements inside 
 [b][tt]ImGi.OpenWindow[/tt][/b]
 [code=ags]void ImGi.OpenWindow(String title)[/code]
 If a window of matching title is closed, it opens again.
+
+[b][tt]ImGi.Close[/tt][/b]
+[code=ags]void ImGi.Close()[/code]
+Closes what is the current scope (Window, Popup, ...). Don't call it outside of a Window, a Popup, ...
+
+[b][tt]ImGi.BeginPopup[/tt][/b]
+[b][tt]ImGi.EndPopup[/tt][/b]
+[b][tt]ImGi.OpenPopup[/tt][/b]
+[code=ags]ImGi_Res ImGi.BeginPopup(String title)
+void ImGi.EndPopup()
+void OpenPopup(String name)[/code]
+
+Popups are like windows, but you can't move or resize them, and they have no headers. They open where the mouse is when calling OpenPopup by default.
+Popups open on top of everything, and they close if you click outside of them. Clicks outside of the popup that hit no window will be forwarded to the rest of your game to handle.
 [hr]
 
 [size=12pt][b]Controls[/b][/size]
 
 Controls are things you can place inside a window. Controls cannot exist outside of windows.
 
-Every controls takes a string as label, this string can't be empty and can't match the label of other control.
+Every controls takes a string as label, this string can't be empty and can't match the label of other control. The exception is if the control can take an icon or graphic, then if you pass null as the string and the control has an icon, it will use the icon if possible. Each window or similar will be a new scope, used to compose this identification, so two different windows can have controls with matching labels.
+
+ImGi comes with a limited number of icons, whenever you can provide an icon as a parameter, you can alternatively pass a sprite number, and in this case it will use that sprite instead of the icon. The default icons use negative numbers, so they don't conflict with your sprite ID.
 
 [b][tt]ImGi.Label[/tt][/b]
 [code=ags]void ImGi.Label(String label)[/code]
@@ -97,7 +142,7 @@ This control is a Multiline Label for visualization only. It has no interaction.
 
 [b][tt]ImGi.TextBox[/tt][/b]
 [code=ags]String ImGi.TextBox(String label, String buf, int bufsz, ImGi_Result* res = 0, ImGi_Opt opt = 0)[/code]
-This control is an editable TextBox. Click on it to give focus and enter the text input with the keyboard. Enter exits focus. 
+This control is an editable TextBox. Click on it to give focus and enter the text input with the keyboard. Enter exits focus.
 
 The character limit is defined in [color=grey][b][tt]bufsz[/tt][/b][/color]. This function will return the [color=grey][b][tt]buf[/tt][/b][/color] String modified, just assign it to the same String so it's content can be updated.
 
@@ -107,27 +152,64 @@ The character limit is defined in [color=grey][b][tt]bufsz[/tt][/b][/color]. Thi
 
 This control is a Button. When clicked, it will return a value different than false.
 
+[b][tt]ImGi.ButtonImage[/tt][/b]
+[code=ags]ImGi_Res ImGi.ButtonImage(String label, int graphic_normal, int graphic_over, int graphic_pressed, ImGi_Opt opt = 0)[/code]
+
+Pass a sprite for the Button normal state, one for when mouse is over, and a graphic for when it's clicked. You can set label null if it's the only button in the window with same graphics.
+
 [b][tt]ImGi.CheckBox[/tt][/b]
-[code=ags]ImGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst)[/code]
+[code=ags]ImGi_Res ImGi.CheckBox(String label, CheckBoxState* chkst, ImGi_Icon icon = eImGi_Icon_Check)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_checkbox.gif[/img]
 
-This control is a CheckBox. It doesn't store state, so make sure to pass it's state.
+This control is a CheckBox. It doesn't store state, so make sure to pass it's state. You optionally pass a different icon to it.
 
 [b][tt]ImGi.Number[/tt][/b]
-[code=ags]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, String format = 0, ImGi_Opt opt = 0)[/code]
+[b][tt]ImGi.NumberI[/tt][/b]
+[code=ags]ImGi_Res ImGi.Number(String label, ImGi_Real* value, float step = 0, String format = 0, ImGi_Opt opt = 0)
+ImGi_Res ImGi.NumberI(String label, ImGi_Int* value, int step = 0, String format = 0, ImGi_Opt opt = 0)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_number.gif[/img]
 
 This control shows a Number, set step to allow quick mouse drag adjustments. Holding shift and clicking it allows entering input with the keyboard.
 
-You can pass a format string similar to the one used with String.Format to specify how the number should be rendered. It's a float, so make sure to use either `"%f"` or `"%g"`.
+You can pass a format string similar to the one used with String.Format to specify how the number should be rendered. It's a float, so make sure to use either [tt]"%f"[/tt] or [tt]"%g"[/tt].
+
+NumberI is the same control but for integer ([tt]int[/tt]) numbers, it's not the same control just wrapped, so it's format string default is [tt]"%d"[/tt].
 
 [b][tt]ImGi.Slider[/tt][/b]
-[code=ags]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0,  String format = 0, ImGi_Opt opt = 0)[/code]
+[b][tt]ImGi.SliderI[/tt][/b]
+[code=ags]ImGi_Res ImGi.Slider(String label, ImGi_Real* value, float low, float high, float step = 0,  String format = 0, ImGi_Opt opt = 0)
+ImGi_Res ImGi.SliderI(String label, ImGi_Int* value, int low, int high, int step = 0, String format = 0, ImGi_Opt opt = 0)[/code]
 [img]https://raw.githubusercontent.com/ericoporto/ImGi/main/docs/images/ctrl_slider.gif[/img]
 
 This control is a Slider. You can adjust it manually with the mouse or you can hold shift and click to specify a value with the keyboard.
 
-You can pass a format string similar to the one used with String.Format to specify how the number should be rendered. It's a float, so make sure to use either `"%f"` or `"%g"`.
+You can pass a format string similar to the one used with String.Format to specify how the number should be rendered. It's a float, so make sure to use either [tt]"%f"[/tt] or [tt]"%g"[/tt].
+
+SliderI is the same control but for integer ([tt]int[/tt]) numbers, it's not the same control just wrapped, so it's format string default is [tt]"%d"[/tt].
+[hr]
+
+[size=12pt][b]Options[/b][/size]
+
+Some controls and other elements can take options. Below is the list of available options. If you wish to pass two or more options, you can combine them with the bitfield or operator |
+
+[code=ags]ImGi.Button("centered text and non-interactive",0, eImGi_Opt_AlignCenter | eImGi_Opt_NoInteract)[/code]
+
+[table]
+[tr][td][tt]eImGi_Opt_AlignCenter[/tt][/td][td]The header of a window or the control will have text aligned to center.[/td][/tr]
+[tr][td][tt]eImGi_Opt_AlignRight[/tt][/td][td]The header of a window or the control will have text aligned to right.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoInteract[/tt][/td][td]Disables interaction with the control.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoFrame[/tt][/td][td]If the control or window has any frame, it's not drawn.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoResize[/tt][/td][td]You can't resize the window by click-dragging it's bottom right corner.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoScroll[/tt][/td][td]Window has no scrollbars.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoClose[/tt][/td][td]Window has no close button.[/td][/tr]
+[tr][td][tt]eImGi_Opt_NoTitle[/tt][/td][td]Window has to title bar.[/td][/tr]
+[tr][td][tt]eImGi_Opt_HoldFocus[/tt][/td][td]Controls with this option will require clicking on a different control to remove focus. Default of some controls.[/td][/tr]
+[tr][td][tt]eImGi_Opt_AutoSize[/tt][/td][td]Makes the window resize to fit content.[/td][/tr]
+[tr][td][tt]eImGi_Opt_PopUp[/tt][/td][td]Closes the container when clicking out of it. This is used by default in Popus.[/td][/tr]
+[tr][td][tt]eImGi_Opt_Closed[/tt][/td][td]Makes the container start closed by default.[/td][/tr]
+[tr][td][tt]eImGi_Opt_Expanded[/tt][/td][td]These are for tree elements, which are not implemented yet.[/td][/tr]
+[/table]
+
 [hr]
 
 [size=12pt][b]Style and Design customization[/b][/size]
