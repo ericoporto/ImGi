@@ -1,6 +1,6 @@
 // ImGi Module Header
 //
-//                   ImGi Version 0.4.1
+//                   ImGi Version 0.4.2
 //
 //   ImGi is a Immediate GUI for Adventure Game Studio!
 //   Create dynamic GUIs through AGS Script, rendered to screen using Overlays.
@@ -131,18 +131,24 @@ builtin struct ImGi
 
   /// Pass an array of widths with count elements to configure the columns in a row. You can optionally specify a height.
   import static void LayoutRow(int count, int widths[], int height = 0);
-  
+
   /// The layout of the next and following rows will have a single column of following width. You can optionally specify a height.
   import static void LayoutRow1(int width, int height = 0);
-  
+
   /// The layout of the next and following rows will have 2 columns of each specified widths. You can optionally specify a height.
   import static void LayoutRow2(int w1, int w2, int height = 0);
-  
+
   /// The layout of the next and following rows will have 3 columns of each specified widths. You can optionally specify a height.
   import static void LayoutRow3(int w1, int w2, int w3, int height = 0);
-  
+
   /// The layout of the next and following rows will have 4 columns of each specified widths. You can optionally specify a height.
   import static void LayoutRow4(int w1, int w2, int w3, int w4, int height = 0);
+
+  /// Allows subdividing a cell in a row in more rows and columns. Don't check it's return value and ALWAYS call LayoutEndColumn() after.
+  import static void LayoutBeginColumn();
+
+  /// ALWAYS call this after a LayoutBeginColumn(). It delimits the end of the column.
+  import static void LayoutEndColumn();
 
   // Containers
 
@@ -166,19 +172,22 @@ builtin struct ImGi
 
   /// Closes what is the current scope (Window, Popup, ...). Don't call it outside of a Window, a Popup, ...
   import static void Close();
-  
+
   /// A panel has to be inside of a window, it will use the LayoutRow cell size for it's size. If it returns successful, you have to call EndPanel() after.
   import static ImGi_Res BeginPanel(String name, ImGi_Opt opt = 0);
 
   /// Call each time a BeginPanel is successful after all controls are listed. ex: if(ImGi.BeginPanel("Pan")){ /*ctrl*/ ImGi.EndPanel();}
   import static void EndPanel();
-  
+
   // Utilities
-  
+
   /// Places the focus on what is the last control. Some controls behave differently when focused.
   import static void SetFocusLastControl();
 
   // Controls
+
+  /// This control does nothing and is invisible. Use it when you don't want to place anything in cell to advance the layout. Ex: [ Button | Empty | Button ]
+  import static void Empty();
 
   /// This control is a Label containing the specified text.
   import static void Label(String label);
@@ -194,7 +203,7 @@ builtin struct ImGi
 
   /// This control is a Button.
   import static ImGi_Res Button(String label, ImGi_Icon icon = 0, ImGi_Opt opt = eImGi_Opt_AlignCenter);
-  
+
   /// Pass a sprite for the Button normal state, one for when mouse is over, and a graphic for when it's clicked. You can set label null if it's the only button in the window with same graphics.
   import static ImGi_Res ButtonImage(String label, int graphic_normal, int graphic_over, int graphic_pressed, ImGi_Opt opt = 0);
 
