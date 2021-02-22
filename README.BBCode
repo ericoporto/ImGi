@@ -1,7 +1,7 @@
-[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.4.1 [/b][/color]
+[size=14pt][b]ImGi[/b][/size] [color=gray][b] version 0.4.2 [/b][/color]
 [url=https://ci.appveyor.com/project/ericoporto/imgi][img]https://ci.appveyor.com/api/projects/status/tq90vg1if9bvdyie?svg=true[/img][/url]
 
-[url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.1/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.4.1.zip] Download project .zip [/url]
+[url=https://github.com/ericoporto/ImGi/releases/download/0.4.2/imgi.scm]Get Latest Release [b]imgi.scm[/b][/url] | [url=https://github.com/ericoporto/ImGi]GitHub Repo[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.2/imgi_demo_windows.zip]Demo Windows[/url] | [url=https://github.com/ericoporto/ImGi/releases/download/0.4.2/imgi_demo_linux.tar.gz]Demo Linux[/url] | [url=https://github.com/ericoporto/ImGi/archive/0.4.2.zip] Download project .zip [/url]
 
 AGS Script Module for Immediate Gui, uses script Overlays to render the interface.
 
@@ -79,6 +79,13 @@ row = new int[2];
 row[0] = 60; // set a predefined column width size per element in row
 row[1] = 70; // this is the width of other column
 ImGi.LayoutRow(2 /*n columns*/, row); // rows after this line have such column config[/code]
+
+[b][tt]ImGi.LayoutBeginColumn[/tt][/b]
+[b][tt]ImGi.LayoutEndColumn[/tt][/b]
+[code=ags]void ImGi.LayoutBeginColumn()
+void ImGi.LayoutEndColumn()[/code]
+Allows subdividing a cell in a row in more rows and columns. You start the column with ImGi.LayoutBeginColumn(), and it's void, so ALWAYS call LayoutEndColumn() after (you don't check it's return value because it's void!).
+
 [hr]
 
 [size=12pt][b]Window[/b][/size]
@@ -124,7 +131,7 @@ Popups open on top of everything, and they close if you click outside of them. C
 [code=ags]ImGi_Res ImGi.BeginPanel(String name, ImGi_Opt opt = 0)
 void ImGi.EndPanel()[/code]
 
-If you need a scrollable area inside a window that is not the window itself, you can use panels! A panel has to be inside of a window, it will use the LayoutRow cell size for it's size. If it returns successful, you have to call EndPanel() after. 
+If you need a scrollable area inside a window that is not the window itself, you can use panels! A panel has to be inside of a window, it will use the LayoutRow cell size for it's size. If it returns successful, you have to call EndPanel() after.
 [code=ags]if(ImGi.BeginPanel("Pan")){
   ImGi.Text("Hi panel!"); // your controls are here ...
   ImGi.EndPanel();
@@ -139,6 +146,10 @@ Controls are things you can place inside a window. Controls cannot exist outside
 Every controls takes a string as label, this string can't be empty and can't match the label of other control. The exception is if the control can take an icon or graphic, then if you pass null as the string and the control has an icon, it will use the icon if possible. Each window or similar will be a new scope, used to compose this identification, so two different windows can have controls with matching labels.
 
 ImGi comes with a limited number of icons, whenever you can provide an icon as a parameter, you can alternatively pass a sprite number, and in this case it will use that sprite instead of the icon. The default icons use negative numbers, so they don't conflict with your sprite ID.
+
+[b][tt]ImGi.Empty[/tt][/b]
+[code=ags]void ImGi.Empty()[/code]
+This control does nothing and is invisible. Use it when you don't want to place anything in cell to advance the layout.
 
 [b][tt]ImGi.Label[/tt][/b]
 [code=ags]void ImGi.Label(String label)[/code]
